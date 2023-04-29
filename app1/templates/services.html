@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+     <!--  ************************* Page Title Starts Here ************************** -->
+               <div class="page-nav no-margin row">
+                   <div class="container">
+                       <div class="row">
+                           <h2>Services Spinta Clinic</h2>
+                           <ul>
+                               <li> <a href="/"><i class="fas fa-home"></i> Home</a></li>
+                               <li><i class="fas fa-angle-double-right"></i> Services </li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+       
+         <!-- ######## Page  Title End ####### -->
+         
+        <!-- ################# Our Session Starts Here#######################--->  	
+  	
+  	<section class="sesion-type">
+  	    <div class="container">
+           
+  	        <div class="row">
+  	            <div class="col-md-4 col-sm-6">
+                    <a href="/">
+  	                <div class="single-sess">
+  	                    <img src="{% static 'assets/images/session/therapy-1.jpg' %}" alt="">
+  	                    <p>Individual Therapy</p>
+  	                </div>
+                    </a>
+  	            </div>
+                <div class="col-md-4 col-sm-6">
+                    <a href="/">
+                    <div class="single-sess">
+                        <img src="{% static 'assets/images/session/therapy-6.jpg' %}" alt="">
+                        <p>Teen Therapy</p>
+                    </div>
+                </a>
+                </div>
+  	            <div class="col-md-4 col-sm-6">
+                    <a href="/">
+  	                <div class="single-sess">
+  	                    <img src="{% static 'assets/images/session/therapy-2.jpg' %}" alt="">
+  	                    <p>Couple Therapy</p>
+  	                </div>
+                </a>
+  	            </div>
+  	            <div class="col-md-4 col-sm-6">
+                    <a href="/">
+  	                <div class="single-sess">
+  	                    <img src="{% static 'assets/images/session/therapy-3.jpg' %}" alt="">
+  	                    <p>online Session</p>
+  	                </div>
+                </a>
+  	            </div>
+  	            <div class="col-md-4 col-sm-6">
+                    <a href= "/">
+  	                <div class="single-sess">
+  	                    <img src="{% static 'assets/images/session/therapy-4.jpg' %}" alt="">
+  	                    <p>Group Therapy</p>
+  	                </div>
+                </a>
+  	            </div>
+  	            <div class="col-md-4 col-sm-6">
+                    <a href="/">
+  	                <div class="single-sess">
+  	                    <img src="{% static 'assets/images/session/therapy-5.jpg' %}" alt="">
+  	                    <p>All Age Group</p>
+  	                </div>
+                </a>
+  	            </div>
+  	            <div class="col-md-4 col-sm-6">
+  	                <div class="single-sess sess-ok">
+  	                   <h4>Start Your Session today</h4>
+  	                    <p>Take the first step on your journey to feeling better. </p>
+                        <a href=""><button class="btn btn-success">Book an Appointment</button></a>
+  	                </div>
+  	            </div>
+  	        </div>
+  	    </div>
+  	</section>
+
+
+    {% endblock %}
