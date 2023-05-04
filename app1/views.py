@@ -1,18 +1,61 @@
 from django.shortcuts import render
-
+from .models import *
 
 ## RENDERING HOME PAGE ##
 def index(request):
-	return render(request,"index.html")
+	Banner   = Slider_banner.objects.all()        # Fetching banner image from database
+	services = Services.objects.all()			  # Fetching banner image from database
+	service  = Service.objects.all()              # Fetching banner image from database
+	session  = Session_types.objects.all()        # Fetching session types  image and name from database
+	
+	mission_vision_whychooseus = mission_vision.objects.all()  # Fetching mission & vision image and content from database
+
+
+	context = {
+
+	'Banner'  :Banner,
+	'service' :service,
+	'services':services,
+	'mvw'     : mission_vision_whychooseus,
+	'session' : session,
+	}
+
+	return render(request,"index.html",context)
 
 ## RENDERING ABOUT US PAGE ##
 def about_us(request):
-	return render(request,"about_us.html")
+
+	about = About_us.objects.all()
+	print(about)
+	mission_vision_whychooseus = mission_vision.objects.all()
+
+	context = {
+	'About' : about,
+	'mvw'   : mission_vision_whychooseus,
+	}
+
+	return render(request,"about_us.html",context)
 
 
 ## RENDERING CONTACT US PAGE ##
 def contact_us(request):
+	if request.method=='POST':
+		name=request.POST["name"]
+		email = request.POST["email"]
+		mobile_no = request.POST['mobile']
+		message = request.POST['message']
+		p = ContactForm.objects.create(name=name,address=email,mobile_number=mobile_no,Message=message)
+		p.save()
+		context = {
+		'name':name,
+		}
+		return render(request,"contact_us.html",context)
+	else:
+		return render(request,"contact_us.html")
+
+
 	return render(request,"contact_us.html")
+
 
 ## RENDERING GALLERY PAGE ##
 def gallery(request):
@@ -48,6 +91,37 @@ def zoom(request):
 
 ## RENDERING REGISTRATION PAGE ##
 def registration(request):
+	# if request.method == 'POST':
+    #     username = request.POST['username']
+    #     email = request.POST['email']
+    #     password = request.POST['password']
+    #     password2 = request.POST['password2']
+
+    #     if password == password2:
+    #         if User.objects.filter(email=email).exists():
+    #             messages.info(request, 'Email Taken')
+    #             return redirect('registration')
+    #         elif User.objects.filter(username=username).exists():
+    #             messages.info(request, 'Username Taken')
+    #             return redirect('registration')
+    #         else:
+    #             user = User.objects.create_user(username=username, email=email, password=password)
+    #             user.save()
+
+    #             # log user in and redirect to settings page
+    #             user_login = auth.authenticate(username=username, password=password)
+    #             auth.login(request, user_login)
+
+    #             # create a Profile object for the new user
+    #             user_model = User.objects.get(username=username)
+    #             new_profile = Profile.objects.create(user=user_model, id_user=user_model.id)
+    #             new_profile.save()
+    #             return redirect('login')
+    #     else:
+    #         messages.info(request, 'Password Not Matching')
+    #         return redirect('registration')
+
+    # else:return render(request, 'registration.html')
 	return render(request,"registration.html")
 
 ## RENDERING REGISTRATION PAGE ##

@@ -6,10 +6,10 @@
      <div class="slider">
         <!-- Set up your HTML -->
         <div class="owl-carousel ">
-            <div class="slider-img">
+            <!-- <div class="slider-img">
                 <div class="item">
                     <div class="slider-img"><img src="{% static 'assets/images/slider/slider-1.jpg' %}" alt=""></div>
-                    <div class="container"> 
+                    <div class="container">
                         <div class="row">
                             <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                                 <div class="slider-captions">
@@ -21,22 +21,24 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            {% for i in Banner %}
             <div class="item">
-                <div class="slider-img"><img src="{% static 'assets/images/slider/slider-2.jpg' %}" alt=""></div>
+                <div class="slider-img"><img src="{{i.image.url}}" alt=""></div>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                             <div class="slider-captions">
-                                <h1 class="slider-title">It's time for better help.</h1>
-                                <p class="slider-text hidden-xs">We can help you conquer a wide range of psychological and emotional problems.</p>
-                                <a href="{% url 'appointment' %}" class="btn btn-success hidden-xs">Schedule A Visit</a>
+                                <h1 class="slider-title">{{i.title}}</h1>
+                                <p class="slider-text hidden-xs">{{i.text}}</p>
+                                <a href="#" class="btn btn-success hidden-xs">{{i.button_name}}</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="item">
+            {% endfor %}
+            <!-- <div class="item">
                 <div class="slider-img"> <img src="{% static 'assets/images/slider/slider-3.jpg' %}" alt=""></div>
                 <div class="container">
                     <div class="row">
@@ -49,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     
@@ -57,42 +59,32 @@
         <div class="container">
         <div class="session-title row">
             <h2>Our Services</h2>
-            <p>Not the answer you're looking for? Printing and typesetting inLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s Lorem</p>
+            {% for i in service %}
+            <p>{{i.desc}}</p>
+            {% endfor %}
         </div>
             <div class="col-sm-12 blog-cont">
                 <div class="row no-margin">
+                    
+                    {% for i in services %}
                     <div class="col-lg-4 col-md-6 blog-smk">
                         <div class="blog-single">
 
-                                <img src="{% static 'assets/images/services/service-1.jpg' %}" alt="">
-
-                            <div class="blog-single-det">
-                            
-                                <h6>Deperssion</h6>
-                                <p>Not the answer you're looking for? Browse other questions tagged  is simply dummy text of the printing and typesetting in</p>
-                                <a href="blog_single.html">
-                                    <button class="btn btn-success btn-sm">More Detail</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 blog-smk">
-                        <div class="blog-single">
-
-                                <img src="{% static 'assets/images/services/service-2.jpg' %}" alt="">
+                                <img src="{{i.image.url}}" alt="">
 
                             <div class="blog-single-det">
                                 
-                                <h6>Anxity</h6>
-                                <p>Not the answer you're looking for? Browse other questions tagged  is simply dummy text of the printing and typesetting in</p>
+                                <h6>{{i.heading}}</h6>
+                                <p>{{i.subcontent}}</p>
                                 <a href="blog_single.html">
                                     <button class="btn btn-success btn-sm">More Detail</button>
                                 </a>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                     
-                    <div class="col-lg-4 col-md-6 blog-smk">
+                    <!-- <div class="col-lg-4 col-md-6 blog-smk">
                         <div class="blog-single">
 
                                 <img src="{% static 'assets/images/services/service-3.jpg' %}" alt="">
@@ -106,7 +98,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     
                     
                     
@@ -154,7 +146,9 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="single-dd">
                         <h4>Our Mission</h4>
-                        <p>Lorem Ipsum is simply text of the Lorem Ipsum is simply my text of the printing and Ipsum is simply text of the Ipsum is simply text of thetypesetting Ipsum is simply text of the stry simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply text of the Lorem Ipsum is simply my text of </p>
+                        {% for i in mvw %}
+                        <p>{{i.mission}}</p>
+                        {% endfor %}
                         
                         
                     </div>
@@ -162,7 +156,9 @@
                 <div class="col-lg-4 col-md-12">
                      <div class="single-dd">
                         <h4>Our Vision</h4>
-                        <p>Lorem Ipsum is simply text of the Lorem Ipsum is simply my text of ply text of the Ipsum is simply text of thetypesetting Ipsum is simply text of the stry simply <br>dummy text of the printing and typesetting industry. Lorem Ipsum is simply text of the Lorem Ipsum is simply my text of </p>
+                        {% for i in mvw %}
+                        <p>{{i.vision}}</p>
+                        {% endfor %}
                         
                         
                     </div>
@@ -170,13 +166,11 @@
                 <div class="col-lg-4 col-md-12">
                      <div class="single-dd">
                         <h4>Why Choos Us ?</h4>
-                        <p>Effective Psychological Therapy with a minimum of 5 years post qualification experience. </p>
+                        {% for i in mvw %}
+
+                        <p>{{i.why_choose_us}}</p>
                         
-                        <p>Ipsum is simply text of the Lorem Ipsum is simply my text of ply text</p>
-                        
-                        <p>Lorem Ipsum is simply text of the Lorem Ipsum is simply my text of ply text of the Ipsum f the Lorem Ipsum is simply my text of ply text </p>
-                        
-                        
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -192,41 +186,44 @@
             <p>Not the answer you're looking for? Printing and typesetting inLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s Lorem</p>
         </div>
             <div class="row">
-                <div class="col-md-4 col-sm-6">
+
+                <!-- <div class="col-md-4 col-sm-6">
                     <div class="single-sess">
-                        <img src="{% static 'assets/images/session/therapy-1.jpg' %}" alt="">
-                        <p>Individual Therapy</p>
+                        <a href="{% url 'service' %}"><img src="{% static 'assets/images/session/therapy-1.jpg' %}" alt=""></a>
+                        <a href="{% url 'service' %}"><p>Individual Therapy</p></a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="single-sess">
-                        <img src="{% static 'assets/images/session/therapy-2.jpg' %}" alt="">
-                        <p>Couple Therapy</p>
+                        <a href="{% url 'service' %}"><img src="{% static 'assets/images/session/therapy-2.jpg' %}" alt=""></a>
+                        <a href="{% url 'service' %}"><p>Couple Therapy</p></a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="single-sess">
-                        <img src="{% static 'assets/images/session/therapy-3.jpg' %}" alt="">
-                        <p>online Session</p>
+                        <a href="{% url 'service' %}"><img src="{% static 'assets/images/session/therapy-3.jpg' %}" alt=""></a>
+                        <a href="{% url 'service' %}"><p>online Session</p></a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="single-sess">
-                        <img src="{% static 'assets/images/session/therapy-4.jpg' %}" alt="">
-                        <p>Group Therapy</p>
+                        <a href="{% url 'service' %}"><img src="{% static 'assets/images/session/therapy-4.jpg' %}" alt=""></a>
+                        <a href="{% url 'service' %}"><p>Group Therapy</p></a>
                     </div>
-                </div>
+                </div> -->
+                {% for i in session %}
                 <div class="col-md-4 col-sm-6">
                     <div class="single-sess">
-                        <img src="{% static 'assets/images/session/therapy-5.jpg' %}" alt="">
-                        <p>All Age Group</p>
+                        <a href="{% url 'service' %}"><img src="{{i.image.url}}" alt=""></a>
+                        <a href="{% url 'service' %}"><p>{{i.name}}</p></a>
                     </div>
                 </div>
+                {% endfor %}
                 <div class="col-md-4 col-sm-6">
                     <div class="single-sess sess-ok">
                        <h4>Start Your Session today</h4>
                         <p>Take the first step on your journey to feeling better. </p>
-                        <button class="btn btn-success">Book an Appointment</button>
+                        <a href="{% url 'appointment' %}"><button class="btn btn-success">Book Online Session</button></a>
                     </div>
                 </div>
             </div>
